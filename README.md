@@ -10,7 +10,7 @@ When loading an icon, it will return a PNG **byte stream** that you can use in a
 ## Installation
 
 ```bash
-pip install material-icons
+pip install python-material-icons
 ```
 
 ## Usage
