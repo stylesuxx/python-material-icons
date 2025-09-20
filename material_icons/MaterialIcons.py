@@ -46,7 +46,18 @@ class MaterialIcons:
         with open(path, "r", encoding="utf-8") as f:
             svg = f.read()
 
-        svg = svg.replace("currentColor", color)
+        style_tag = f"""
+        <style>
+          *[fill="currentColor"],
+          *:not([fill]) {{
+            fill: {color};
+          }}
+        </style>
+        """
+
+        if "<svg" in svg:
+            svg = svg.replace(">", f">{style_tag}", 1)
+
         png_bytes = svg2png(
             bytestring=svg.encode("utf-8"),
             output_width=size,
