@@ -12,8 +12,10 @@ class IconStyle(Enum):
 
 
 class MaterialIcons:
+    # class-wide cache shared by all instances
+    _cache: Dict[Tuple[str, int, str, str], bytes] = {}
+
     def __init__(self):
-        self.cache: Dict[Tuple[str, int, str, str], bytes] = {}
         self.icon_dir = os.path.join(os.path.dirname(__file__), "icons")
 
     def get(
@@ -36,8 +38,8 @@ class MaterialIcons:
             PNG image as raw bytes.
         """
         key = (name, size, color, style.value)
-        if key in self.cache:
-            return self.cache[key]
+        if key in MaterialIcons._cache:
+            return MaterialIcons._cache[key]
 
         path = os.path.join(self.icon_dir, style.value, f"{name}.svg")
         if not os.path.exists(path):
@@ -64,6 +66,6 @@ class MaterialIcons:
             output_height=size
         )
 
-        self.cache[key] = png_bytes
+        MaterialIcons._cache[key] = png_bytes
 
         return png_bytes
