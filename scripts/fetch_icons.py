@@ -9,17 +9,14 @@ ICON_DIR = os.path.join(os.path.dirname(__file__), "..", "material_icons", "icon
 
 def main():
     os.makedirs(ICON_DIR, exist_ok=True)
-    tmpdir = "/tmp/tmpit9to6mi"
 
-    """
-    #tmpdir = tempfile.mkdtemp()
+    tmpdir = tempfile.mkdtemp()
     print("Cloning Material Icons (src only)...")
     subprocess.run(["git", "clone", "--depth=1", "--filter=blob:none", "--sparse", REPO_URL, tmpdir], check=True)
 
     # Configure sparse checkout to only include src directory
     subprocess.run(["git", "-C", tmpdir, "sparse-checkout", "set", "src"], check=True)
     subprocess.run(["git", "-C", tmpdir, "sparse-checkout", "reapply"], check=True)
-    """
 
     root = os.path.join(tmpdir, "src")
 
@@ -40,7 +37,6 @@ def main():
                 path_parts = os.path.relpath(dirpath, root).split(os.sep)
 
                 if len(path_parts) >= 3:
-                    #category = path_parts[0]
                     name = path_parts[1]
                     style_dir_name = path_parts[2].lower()
 
@@ -55,7 +51,7 @@ def main():
                         target_path = os.path.join(target_style_dir, f"{name}.svg")
                         shutil.copy2(full_path, target_path)
 
-    #shutil.rmtree(tmpdir)
+    shutil.rmtree(tmpdir)
     print("Icons downloaded into:", ICON_DIR)
 
 
