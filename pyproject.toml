@@ -7,7 +7,7 @@ name = "material-icons"
 version = "0.1.0"
 description = "Use Google's Material Icons in your Python applications"
 readme = "README.md"
-license = {text = "MIT"}
+license = "MIT"
 authors = [
     {name = "Chris L.", email = "stylesuxx@gmail.com"}
 ]
@@ -18,7 +18,6 @@ keywords = ["material", "icons", "google", "design", "svg", "png"]
 classifiers = [
     "Development Status :: 4 - Beta",
     "Intended Audience :: Developers",
-    "License :: OSI Approved :: MIT License",
     "Operating System :: OS Independent",
     "Programming Language :: Python :: 3",
     "Programming Language :: Python :: 3.8",
