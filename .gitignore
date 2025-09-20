@@ -1,0 +1,5 @@
+venv
+material_icons/icons
+__pycache__
+dist
+material_icons.egg-info

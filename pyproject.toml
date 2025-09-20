@@ -1,0 +1,80 @@
+[build-system]
+requires = ["setuptools>=61.0", "wheel"]
+build-backend = "setuptools.build_meta"
+
+[project]
+name = "material-icons"
+version = "0.1.0"
+description = "Use Google's Material Icons in your Python applications"
+readme = "README.md"
+license = {text = "MIT"}
+authors = [
+    {name = "Chris L.", email = "stylesuxx@gmail.com"}
+]
+maintainers = [
+    {name = "Chris L.", email = "stylesuxx@gmail.com"}
+]
+keywords = ["material", "icons", "google", "design", "svg", "png"]
+classifiers = [
+    "Development Status :: 4 - Beta",
+    "Intended Audience :: Developers",
+    "License :: OSI Approved :: MIT License",
+    "Operating System :: OS Independent",
+    "Programming Language :: Python :: 3",
+    "Programming Language :: Python :: 3.8",
+    "Programming Language :: Python :: 3.9",
+    "Programming Language :: Python :: 3.10",
+    "Programming Language :: Python :: 3.11",
+    "Programming Language :: Python :: 3.12",
+    "Topic :: Multimedia :: Graphics",
+    "Topic :: Software Development :: Libraries :: Python Modules",
+    "Topic :: Software Development :: User Interfaces",
+]
+requires-python = ">=3.8"
+dependencies = [
+    "cairosvg>=2.8.2",
+]
+
+[project.optional-dependencies]
+dev = [
+    "pytest>=7.0",
+    "pytest-cov",
+    "black",
+    "flake8",
+    "mypy",
+]
+examples = [
+    "pygame-ce>=2.5.5",
+    "pillow>=11.3.0",
+]
+
+[project.urls]
+Homepage = "https://github.com/stylesuxx/python-material-icons"
+Repository = "https://github.com/stylesuxx/python-material-icons"
+Documentation = "https://github.com/stylesuxx/python-material-icons#readme"
+Issues = "https://github.com/stylesuxx/python-material-icons/issues"
+Changelog = "https://github.com/stylesuxx/python-material-icons/releases"
+
+[tool.setuptools]
+packages = ["material_icons"]
+include-package-data = true
+
+[tool.setuptools.package-data]
+material_icons = ["icons/**/*.svg"]
+
+[tool.black]
+line-length = 88
+target-version = ['py38']
+include = '\.pyi?$'
+
+[tool.mypy]
+python_version = "3.8"
+warn_return_any = true
+warn_unused_configs = true
+disallow_untyped_defs = true
+disallow_incomplete_defs = true
+check_untyped_defs = true
+no_implicit_optional = true
+warn_redundant_casts = true
+warn_unused_ignores = true
+show_error_codes = true
