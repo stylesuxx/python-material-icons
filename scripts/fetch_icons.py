@@ -24,7 +24,8 @@ def main():
     style_mapping = {
         'materialiconsoutlined': 'outlined',
         'materialiconsround': 'round',
-        'materialiconssharp': 'sharp'
+        'materialiconssharp': 'sharp',
+        'materialiconstwotone': 'twotone'
     }
 
     # copy all SVGs into consolidated structure

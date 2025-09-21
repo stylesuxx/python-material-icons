@@ -9,6 +9,7 @@ class IconStyle(Enum):
     OUTLINED = "outlined"
     ROUND = "round"
     SHARP = "sharp"
+    TWOTONE = "twotone"
 
 
 class MaterialIcons:
@@ -32,7 +33,7 @@ class MaterialIcons:
             name:  Icon filename without .svg (e.g. "close", "check_box").
             size:  Target size in pixels (width & height).
             color: Fill color, replaces "currentColor" in the SVG (default black).
-            style: IconStyle enum (OUTLINED, ROUND, or SHARP).
+            style: IconStyle enum (OUTLINED, ROUND, SHARP or TWOTONE).
 
         Returns:
             PNG image as raw bytes.
@@ -50,7 +51,6 @@ class MaterialIcons:
 
         style_tag = f"""
         <style>
-          *[fill="currentColor"],
           *:not([fill]) {{
             fill: {color};
           }}

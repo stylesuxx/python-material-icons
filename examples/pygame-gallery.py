@@ -8,7 +8,7 @@ import pygame
 
 # Add parent directory to path to import material_icons
 sys.path.insert(0, os.path.dirname(os.path.dirname(os.path.abspath(__file__))))
-from material_icons import MaterialIcons
+from material_icons import MaterialIcons, IconStyle
 
 
 class IconGallery:
@@ -23,6 +23,7 @@ class IconGallery:
         self.title_font = pygame.font.Font(None, 24)
 
         self.icons = MaterialIcons()
+        self.style = IconStyle.TWOTONE
         self.icon_list = self._get_all_icons()
 
         # Grid settings
@@ -45,7 +46,7 @@ class IconGallery:
 
     def _get_all_icons(self) -> List[str]:
         """Get list of all available icons from the outlined directory."""
-        outlined_dir = os.path.join(self.icons.icon_dir, "outlined")
+        outlined_dir = os.path.join(self.icons.icon_dir, self.style.value)
         if not os.path.exists(outlined_dir):
             print(f"Icons directory not found: {outlined_dir}")
             return []
@@ -61,7 +62,7 @@ class IconGallery:
     def _load_icon_surface(self, name: str) -> "pygame.Surface":
         """Load an icon and convert to pygame surface."""
         try:
-            png_bytes = self.icons.get(name, size=self.icon_size)
+            png_bytes = self.icons.get(name, size=self.icon_size, style=self.style, color="#FF0000")
             return pygame.image.load(io.BytesIO(png_bytes))
         except Exception as e:
             print(f"Failed to load icon '{name}': {e}")

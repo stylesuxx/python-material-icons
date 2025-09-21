@@ -48,7 +48,7 @@ surface = pygame.image.load(io.BytesIO(png_bytes))
 - **name** *(str)*: The Material icon name, e.g. `"cancel"`, `"check_box"`, `"signal_cellular_4_bar"`.
 - **size** *(int, default=24)*: The output icon size in pixels (square).
 - **color** *(str, default="#000000")*: The icon color as a hex string.
-- **style** *(IconStyle, default=IconStyle.OUTLINED)*: The icon style - `IconStyle.OUTLINED`, `IconStyle.ROUND`, or `IconStyle.SHARP`.
+- **style** *(IconStyle, default=IconStyle.OUTLINED)*: The icon style - `IconStyle.OUTLINED`, `IconStyle.ROUND`, `IconStyle.SHARP` or `IconStyle.TWOTONE`.
 
 ### Icon Styles
 
@@ -57,6 +57,7 @@ Material Icons come in three distinct styles:
 - **Outlined** (`IconStyle.OUTLINED`): Clean, minimal outlined icons (default)
 - **Round** (`IconStyle.ROUND`): Rounded corners and edges for a softer look
 - **Sharp** (`IconStyle.SHARP`): Angular, sharp-edged icons for a more geometric feel
+- **TWOTONE** (`IconStyle.TWOTONE`): Two toned icons
 
 ```python
 # Get the same icon in different styles
